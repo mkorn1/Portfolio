@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Michael Korn's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif; 
+            background-color: #f5f5f5; /* Light grey background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content {
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+
+        .project-card, .profile, #about, #resume {
+            margin-bottom: 30px;
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        img.profile {
+            display: block;
+            margin: 0 auto; /* Center the profile image */
+        }
+
+
+        img.profile {
+            border-radius: 50%;
+            width: 50%;
+            height: auto;
+        }
+
+        #profile {
+            margin-top: 10vh;  /* adjust as needed */
+            text-align: center; /* Center content horizontally */
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center children horizontally */
+        }
+
+        div a {
+            margin-right: 20px;  /* Adjust this value for more or less spacing */
+        }
+
+        div a:last-child {
+            margin-right: 0;  /* Ensures the last icon doesn't have extra space on the right */
+        }
+        
+        #projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Makes the grid responsive */
+            gap: 20px; /* Spacing between project cards */
+        }
+
+        .project-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        .project-card img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+
+
+        .project-card:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center; /* This vertically centers the flex items */
+            justify-content: space-around; /* Distributes the items with equal space */
+        }
+
+        .company-logos {
+            display: flex;
+            flex-direction: column; /* Stack logos vertically */
+            gap: 10px; /* Adjust as needed */
+        }
+
+        .company-logo {
+            width: 30px; /* Adjust based on the desired logo size */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .logo-image {
+            width: 30px; /* Adjust as needed */
+            height: 30px; /* Adjust as needed */
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    {% include 'components/nav.html' %}
+    
+    <div class="main-content">
+        <section id="profile">
+            <div class="profile-container">
+                <div class="company-logos left-logos">
+                    <img src="https://glginsights.com/assets/img/glg-logo-navy-2.11279313.svg" alt="Company 1" class="company-logo">
+                    <img src="https://www.fdic.gov/assets/images/icon-seal.svg" alt="Company 2" class="company-logo">
+                    <img src="https://media.licdn.com/dms/image/C560BAQFkDzx_7dqq3A/company-logo_100_100/0/1519902995023?e=1702512000&v=beta&t=Gf8Y05IgKH8tQKW9q9ms8-gyrybVXmRHbUedVvIk0nc" alt="Company 2" class="company-logo">
+                    <!-- <img src="URL_of_second_logo" alt="Company 2" class="company-logo"> -->
+           
+                </div>
+        
+                <div class="central-content">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQGpPluOgFm1yQ/profile-displayphoto-shrink_400_400/0/1694634808796?e=1700092800&v=beta&t=jJCn2BrctiTkFvBV2IUu-koZVWfgvq-yj3e2mFwQQog" alt="Profile" class="profile">
+                    <div>
+                        <a href="https://www.linkedin.com/in/kornmichael/" target="_blank">
+                            <img src="https://media.licdn.com/dms/image/C560BAQHaVYd13rRz3A/company-logo_100_100/0/1638831589865?e=1702512000&v=beta&t=BsnYNSvEJqLE0JHW5mROg_9i1CS03yNh0vPusCmP0kg" alt="LinkedIn" class="logo-image">
+                        </a>
+                        <a href="https://github.com/mkorn1" target="_blank">
+                            <img src="https://media.licdn.com/dms/image/C560BAQFmuLSyL1nlPA/company-logo_100_100/0/1678231358774?e=1702512000&v=beta&t=0zd6D3AJOgnbraZYQVzEAJ6JHKZLTqHAcSZEYM7vsmU" alt="GitHub" class="logo-image">
+                        </a>
+                    </div>
+                </div>
+                
+        
+                <div class="company-logos right-logos">
+                    <img src="https://media.licdn.com/dms/image/C560BAQF5NYafC0X3pA/company-logo_100_100/0/1674677460151?e=1702512000&v=beta&t=3ijHyzi9xa-pJapbtnDPrdoY8N3faa7qj86lWnv9ESA" alt="Company 3" class="company-logo">
+                    <img src="https://www.consumerfinance.gov/static/img/logo_237x50@2x.1a8febf782f9.png" alt="Company 2" class="company-logo">
+                    <!-- <img src="URL_of_fourth_logo" alt="Company 4" class="company-logo"> -->
+                    <!-- Add more logos as needed -->
+                </div>
+            </div>
+        </section>        
+
+        <section id="about">
+            <!-- About section content -->
+            <h2>About Me</h2>
+            <p>
+                Michael is a data scientist, software developer, and musician who combines his passions and skills to create Mashmia.com, a platform that generates personalized music recommendations. He has over two years of experience as a founder, product developer, and software engineer in the music technology industry, where he leverages machine learning, artificial intelligence, and human-computer interaction to deliver innovative solutions.
+                <br><br>
+                Previously, Michael worked as a technology research consultant for GLG, where he helped F50 tech companies with M&A, product strategy, and product development by building and leading consulting teams. Michael holds a BS in Mathematics and Anthropology from Johns Hopkins University, where he was an active leader and advisor in the student government association. He speaks three languages and plays seven instruments.
+            </p>
+        </section>
+
+        <section id="projects">
+            <!-- Projects section -->
+            <h2>My Projects</h2>
+            {% for project in projects %}
+            <a href="{{ url_for('project', id=project.id) }}" class="project-link" style="text-decoration: none; color: inherit;">
+                <div class="project-card">
+                    <h3>{{ project.title }}</h3>
+                    <h7>{{ project.subtitle }}</h7>
+                    <img src="{{ project.thumbnail }}" alt="{{ project.title }}" width="200">
+                </div>
+            </a> <!-- Added this closing tag -->
+        {% endfor %}    
+        </section>
+
+        <section id="resume">
+            <!-- Resume section content -->
+            <h2>Resume</h2>
+            <p>
+                <!-- Your resume details or a link to download it -->
+            </p>
+        </section>
+    
+    </div>
+</body>
+</html>

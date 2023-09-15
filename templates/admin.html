@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+    {% include 'components/nav.html'%}
+
+    <h2>Add a project</h2>
+    <form action="{{ url_for('add_project') }}" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="subtitle" placeholder="Subtitle">
+        <textarea name="description" placeholder="Description"></textarea>
+        <label for="htmlUpload">Upload HTML file:</label>
+        <input id="htmlUpload" type="file" name="html_file" accept=".html">
+        
+        <label for="file">Upload image file:</label>
+        <input type="file" name="thumbnail">
+        <input type="text" name="embed_link" placeholder="Embed Link (Optional)">
+        <button type="submit">Add Project</button>
+    </form>
+
+    <h2>Existing Projects</h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <a href="{{ url_for('project', id=project.id) }}" class="project-link" style="text-decoration: none; color: inherit;">
+
+                    <div class="project-info">
+                        <h3>{{ project.title }}</h3>
+                        <h5>{{ project.subtitle }}</h5>
+                        <img src="{{ project.thumbnail }}" alt="{{ project.title }}" width="100">
+                    </div>
+                    <a href="{{ url_for('edit_project', id=project.id) }}">Edit</a> | 
+                    <a href="{{ url_for('delete_project', id=project.id) }}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ project.title }}</title>
+    <!-- Add your header info, styles, etc. -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* You can change this to any preferred font */
+            background-color: #f5f5f5; /* Light grey background */
+        }
+
+        .project-detail {
+            max-width: 800px; /* You can adjust this as needed */
+            margin: 40px auto; /* Top-bottom margin of 40px and auto left-right margin for centering */
+            padding: 20px; /* Padding inside the card */
+            background-color: #fff; /* White background for the card */
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+        }
+
+        .project-detail img {
+            display: block; /* Makes sure the image takes its own line */
+            max-width: 100%; /* Ensures the image doesn't overflow its container */
+            height: auto; /* Keeps the aspect ratio of the image */
+            margin: 20px auto; /* 20px vertical margin and auto left-right margin for centering */
+        }
+
+        .project-detail h1, .project-detail h2 {
+            text-align: center; /* Center-aligns the text */
+        }
+
+        iframe {
+            display: block; /* Similar to the image, makes sure the iframe takes its own line */
+            margin: 20px auto; /* Center the iframe */
+        }
+
+    </style>
+</head>
+<body>
+
+    {% include 'components/nav.html'%}
+
+    <div class="project-detail">
+        <h1>{{ project.title }}</h1>
+        <h5>{{ project.subtitle }}</h5>
+
+        <img src="{{ url_for('static', filename=project.thumbnail.split('/')[-1]) }}" alt="{{ project.title }}" width="100">
+        <p>{{ project.description }}</p>
+        {% if project.html_file_path %}
+            <iframe src="{{ url_for('static', filename=project.html_file_path.split('/')[-1]) }}" width="100%" height="1000px"></iframe>
+        {% endif %}
+
+        {% if project.embed_link %}
+            <iframe width="560" height="315" src="{{ project.embed_link }}" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
+    </div>
+
+    <!-- Add your footer, scripts, etc. -->
+</body>
+</html>

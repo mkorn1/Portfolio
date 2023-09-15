@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Project</title>
+</head>
+<body>
+    {% include 'components/nav.html'%}
+
+    <h2>Edit Project</h2>
+    <form action="{{ url_for('edit_project', id=project.id) }}" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" value="{{ project.title }}">
+        <input type="text" name="subtitle" placeholder="Subtitle" value="{{ project.subtitle }}">
+        <textarea name="description" placeholder="Description">{{ project.description }}</textarea>
+        <label for="htmlUpload">Upload HTML file:</label>
+        <input id="htmlUpload" type="file" name="html_file" accept=".html">
+        
+        <label for="file">Upload image file:</label>
+        <input type="file" name="thumbnail">
+        <img src="{{ project.thumbnail }}" alt="Thumbnail">
+        <input type="text" name="embed_link" placeholder="Embed Link (Optional)" value="{{ project.embed_link }}">
+        <button type="submit">Update Project</button>
+    </form>
+</body>
+</html>
