@@ -64,10 +64,13 @@
         #projects {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Makes the grid responsive */
+            align-items: start;  /* Align items to the start of the grid row */
             gap: 20px; /* Spacing between project cards */
         }
 
         .project-card {
+            min-height: 300px;  /* Adjust as needed */
+
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 10px;
@@ -76,7 +79,7 @@
 
         .project-card img {
             display: block;
-            max-width: 100%;
+            max-width: 50%;
             height: auto;
             margin: 20px auto;
         }
